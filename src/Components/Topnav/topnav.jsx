@@ -1,0 +1,110 @@
+import { } from '@chakra-ui/react'
+import { Stack, Progress } from '@chakra-ui/react';
+import {
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuItemOption,
+    MenuGroup,
+    MenuOptionGroup,
+    MenuDivider,
+    Box,
+    Button,
+    HStack, Input, InputGroup, InputLeftElement, Image, Icon, Heading, Text
+} from '@chakra-ui/react'
+import React from 'react'
+import logo from '../../assets/logo.png'
+import { IoIosSearch } from "react-icons/io";
+import user from '../../assets/user.jpg'
+import { GrAnnounce } from "react-icons/gr";
+import { MdOutlineExitToApp } from "react-icons/md";
+
+const topnav = () => {
+
+
+    const topIcons = [
+        { icon: GrAnnounce, key: 1 },
+        { icon: GrAnnounce, key: 2 },
+        { icon: GrAnnounce, key: 3 },
+
+
+    ]
+
+
+    return (
+        <>
+            <HStack boxShadow='xl' h='16' justify={"space-between"} px='32' backgroundColor={"whitesmoke"}>
+                <Image src={logo} width={'10rem'} />
+                <InputGroup
+                    justify={'center'}
+                    boxShadow='md'
+                    width={'max-content'}
+                    borderRadius={'30px'}
+                    outline={'unset'}>
+                    <Input type='tel' placeholder='Search' w={'13rem'} />
+                </InputGroup>
+                <Heading as='h5' fontSize={'23px'} color={'#707070'}>
+                    Dashboard
+                </Heading>
+                <Stack boxShadow='lg' backgroundColor={"white"} padding={'6px'} borderRadius={'3px'} w={'9rem'}>
+                    <HStack gap={8}>
+                        <Text fontSize={'11px'} fontWeight={'bold'}>Timer:</Text>
+                        <Text fontSize={'11px'} color={'red'} fontWeight={'bold'}>33:30 min</Text>
+                    </HStack>
+                    <Progress value={70} height={'6px'} colorScheme='red' borderRadius={'3px'}
+                        marginBottom={'3px'} cursor={'pointer'} backgroundColor={'#4C00A4'} />
+                </Stack>
+                <Menu>
+                    <MenuButton as={Button} borderRadius={'50%'} height={'43px'} width={'43px'} padding={'1px'} boxShadow='xl' backgroundColor={'whitesmoke'}>
+                        <Image src={user} height={'39px'} width={'39px'} borderRadius={'50%'} />
+                    </MenuButton>
+                    <MenuList>
+                        <MenuItem>Profile</MenuItem>
+                    </MenuList>
+                </Menu>
+                <HStack>
+                    {
+
+                        topIcons.map((icons, index) => {
+
+                            return (
+                                <>
+                                    <Box key={icons.key}
+                                        backgroundColor={'#4C00A4'}
+                                        padding={'5px'}
+                                        height={'1.5rem'}
+                                        borderRadius={'50%'}
+                                        transition={'all 0.3s ease'}
+                                        cursor={'pointer'}
+                                        justifyContent="center"
+                                        _hover={{
+                                            opacity: '0.8'
+                                        }}
+                                    >
+                                        <Icon as={icons.icon}
+                                            color={'white'}
+                                            fontSize={'13px'}
+                                            justifyItems={'center'} />
+
+                                    </Box>
+
+                                </>
+                            )
+                        })
+
+                    }
+
+
+                </HStack>
+
+
+                <Icon as={MdOutlineExitToApp} fontSize={'33px'} cursor={'pointer'} transition={'0.3s ease all'} _hover={{
+                    opacity: '0.5'
+                }} />
+
+            </HStack>
+        </>
+    )
+}
+export default topnav;
