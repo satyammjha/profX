@@ -19,13 +19,14 @@ import { TbBooks } from "react-icons/tb";
 import { FaNetworkWired } from "react-icons/fa6";
 import { PiExamFill } from "react-icons/pi";
 import logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 const sidenav = () => {
     const links = [
         {
             name: 'Dashboard',
             icon: MdDashboard,
-            path: '/dashboard'
+            path: '/'
         },
         {
             name: 'Announce',
@@ -40,43 +41,39 @@ const sidenav = () => {
         {
             name: 'Chats',
             icon: IoMdChatbubbles,
-            path: '/announce'
+            path: '/chats'
         },
         {
             name: 'Leave',
             icon: SlCalender,
-            path: '/announce'
+            path: '/leave'
         },
         {
             name: 'Results',
             icon: HiDocumentReport,
-            path: '/announce'
+            path: '/results'
         },
         {
             name: 'Support',
             icon: BiSupport,
-            path: '/announce'
+            path: '/support'
         },
         {
             name: 'Resources',
             icon: TbBooks,
-            path: '/announce'
+            path: '/resources'
         },
         {
             name: 'Workload',
             icon: FaNetworkWired,
-            path: '/announce'
+            path: '/workload'
         },
         {
             name: 'Exams',
             icon: PiExamFill,
-            path: '/announce'
+            path: '/exams'
         },
-
-
     ]
-
-
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -103,6 +100,7 @@ const sidenav = () => {
                 onClick={() => {
                     onOpen()
                 }} />
+
             <Drawer
                 isOpen={isOpen}
                 placement='left'
@@ -111,9 +109,6 @@ const sidenav = () => {
                 size={'xs'}
                 padding={'none'}
             >
-
-
-
                 <DrawerContent padding={'none'}>
                     <DrawerCloseButton
                         as={MdOutlineMenuOpen}
@@ -138,16 +133,20 @@ const sidenav = () => {
                             {links.map((link, index) => {
                                 return (
                                     <>
-                                        <HStack cursor={'pointer'}
-                                            _hover={{
-                                                opacity: '0.5'
-                                            }
-                                            }
-                                            key={link.path}
-                                        >
-                                            <Icon as={link.icon} fontSize={'23px'} />
-                                            <Text fontSize='17px' color={'#707070'} fontWeight={'bold'}>{link.name}</Text>
-                                        </HStack >
+                                        <Link to={link.path} display={'flex'}>
+                                            <HStack cursor={'pointer'}
+                                                _hover={{
+                                                    opacity: '0.5'
+                                                }
+                                                }
+                                                key={link.path}
+                                            >
+
+                                                <Icon as={link.icon} fontSize={'23px'} />
+                                                <Text fontSize='17px' color={'#707070'} fontWeight={'bold'}>{link.name}</Text>
+
+                                            </HStack >
+                                        </Link>
                                         <hr />
                                     </>
                                 )

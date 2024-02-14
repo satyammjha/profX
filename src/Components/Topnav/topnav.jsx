@@ -18,23 +18,22 @@ import logo from '../../assets/logo.png'
 import { IoIosSearch } from "react-icons/io";
 import user from '../../assets/user.jpg'
 import { GrAnnounce } from "react-icons/gr";
-import { MdOutlineExitToApp } from "react-icons/md";
+import { MdOutlineExitToApp, MdOutlineMenuOpen } from "react-icons/md";
 
-const topnav = () => {
-
-
+const topnav = ({ title }) => {
     const topIcons = [
         { icon: GrAnnounce, key: 1 },
         { icon: GrAnnounce, key: 2 },
         { icon: GrAnnounce, key: 3 },
-
-
     ]
-
-
     return (
+
+
         <>
             <HStack boxShadow='xl' h='16' justify={"space-between"} px='32' backgroundColor={"whitesmoke"}>
+
+
+
                 <Image src={logo} width={'10rem'} />
                 <InputGroup
                     justify={'center'}
@@ -45,7 +44,7 @@ const topnav = () => {
                     <Input type='tel' placeholder='Search' w={'13rem'} />
                 </InputGroup>
                 <Heading as='h5' fontSize={'23px'} color={'#707070'}>
-                    Dashboard
+                    {title}
                 </Heading>
                 <Stack boxShadow='lg' backgroundColor={"white"} padding={'6px'} borderRadius={'3px'} w={'9rem'}>
                     <HStack gap={8}>
@@ -70,7 +69,7 @@ const topnav = () => {
 
                             return (
                                 <>
-                                    <Box key={icons.key}
+                                    <Box key={index}
                                         backgroundColor={'#4C00A4'}
                                         padding={'5px'}
                                         height={'1.5rem'}
