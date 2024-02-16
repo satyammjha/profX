@@ -32,8 +32,6 @@ const topnav = ({ title }) => {
         <>
             <HStack boxShadow='xl' h='16' justify={"space-between"} px='32' backgroundColor={"whitesmoke"}>
 
-
-
                 <Image src={logo} width={'10rem'} />
                 <InputGroup
                     justify={'center'}
