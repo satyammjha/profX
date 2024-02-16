@@ -35,35 +35,35 @@ const Announce = () => {
 
 
 
-                <div className='py-4 flex justify-center items-center'>
-                    <div className='w-4/5 h-16 flex justify-center bg-white items-center rounded-lg'>
-                        <div className="w-5/6 flex justify-between text-white  ">
+            <div className='py-4 flex justify-center items-center'>
+                <div className='w-4/5 h-16 flex justify-center bg-white items-center rounded-lg'>
+                    <div className="w-5/6 flex justify-between text-white  ">
+                        <div>
+                            <h1 className='px-3 py-2 bg-[#4C00A4] rounded-full '>Organize an event</h1>
+                        </div>
+                        <div className='w-64 flex justify-between'>
                             <div>
-                                <h1 className='px-3  bg-[#4C00A4] rounded-full '>Organize an event</h1>
-                            </div>
-                            <div className='w-64 flex justify-between'>
-                                <div>
-                                    <h1 className='px-3 bg-[#4C00A4] rounded-full '>For Students</h1>
-                                </div>
-                                <div>
-                                    <h1 className='px-3 bg-[#4C00A4] rounded-full'>For Teachers</h1>
-                                </div>
+                                <h1 className='px-3 py-2 bg-[#4C00A4] rounded-full '>For Students</h1>
                             </div>
                             <div>
-                                <h1 className='px-3 bg-[#4C00A4] rounded-full'>Organize an event</h1>
+                                <h1 className='px-3 py-2 bg-[#4C00A4] rounded-full'>For Teachers</h1>
                             </div>
+                        </div>
+                        <div>
+                            <h1 className='px-3 py-2 bg-[#4C00A4] rounded-full'>Organize an event</h1>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
-                <div className="w-4/5 absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] bg-white rounded-xl">
-             
+            <div className="w-4/5 absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] bg-white rounded-xl">
+
                 <div className="mt-6 flex justify-center ">
                     <div className='w-5/6 flex justify-center'>
                         <div className="w-5/6 flex  justify-between">
                             <div className="header text-white">
-                                <h1 className='px-3  bg-[#4C00A4] rounded-full '> Options:</h1>
+                                <h1 className='px-3 py-2 bg-[#4C00A4] rounded-full '> Options:</h1>
                             </div>
                             <div className="w-2/3 flex options justify-between  ">
                                 <select id="year" className='border-2 border-gray-500 shadow-2xl px-4 rounded-full'>
@@ -94,84 +94,84 @@ const Announce = () => {
                 </div>
 
                 <div className="mt-2 flex justify-center">
-                <div className="w-2/3 grid grid-cols-3 ">
-                    {/* First column: Event details */}
-                    <div className="w-3/4 p-4">
-                        <label htmlFor="title" className="mt-3 block text-sm font-medium text-gray-700">Title of the event:</label>
-                        <label htmlFor="title" className="mt-3 block text-sm font-medium text-gray-700">Venue:</label>
-                        <label htmlFor="title" className="mt-3 block text-sm font-medium text-gray-700">Category:</label>
-                        <label htmlFor="title" className="mt-3 block text-sm font-medium text-gray-700">Eligibility:</label>
-                        <label htmlFor="title" className="mt-3 block text-sm font-medium text-gray-700">Date:</label>
-                        <label htmlFor="title" className="mt-3 block text-sm font-medium text-gray-700">Poster:</label>
-                    </div>
+                    <div className="w-2/3 grid grid-cols-3 text-lg">
+                        {/* First column: Event details */}
+                        <div className="w-3/4 p-4 ">
+                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Title of the event:</label>
+                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Venue:</label>
+                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Category:</label>
+                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Eligibility:</label>
+                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Date:</label>
+                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Poster:</label>
+                        </div>
 
-                    {/* Second column: Input fields */}
-                    <div className="w-11/12 p-4">
-                        <div className="mb-4">
+                        {/* Second column: Input fields */}
+                        <div className="w-11/12 p-4 text-lg">
+                            <div className="mb-4">
 
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                // value={eventDetails.title}
-                                // onChange={handleInputChange}
-                                className="border-2   mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
-                            />
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                // value={eventDetails.title}
-                                // onChange={handleInputChange}
-                                className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
-                            />
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                // value={eventDetails.title}
-                                // onChange={handleInputChange}
-                                className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
-                            />
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                // value={eventDetails.title}
-                                // onChange={handleInputChange}
-                                className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
-                            />
-                            <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                value={eventDetails.date}
-                                onChange={handleInputChange}
-                                className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
-                            />
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={handlePosterUpload}
-                                className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
-                            />
+                                <input
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    // value={eventDetails.title}
+                                    // onChange={handleInputChange}
+                                    className="border-2   mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm  border-gray-500 rounded-md"
+                                />
+                                <input
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    // value={eventDetails.title}
+                                    // onChange={handleInputChange}
+                                    className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm  border-gray-500 rounded-md"
+                                />
+                                <input
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    // value={eventDetails.title}
+                                    // onChange={handleInputChange}
+                                    className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm  border-gray-500 rounded-md"
+                                />
+                                <input
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    // value={eventDetails.title}
+                                    // onChange={handleInputChange}
+                                    className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm  border-gray-500 rounded-md"
+                                />
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    value={eventDetails.date}
+                                    onChange={handleInputChange}
+                                    className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-gray-500 rounded-md"
+                                />
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handlePosterUpload}
+                                    className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Third column: Poster preview */}
+                        <div className=" p-4">
+                            <h2 className="text-lg font-bold mb-2">Poster Preview</h2>
+                            <div className=" mb-4 border-2 h-48 border-gray-400 rounded-md ">
+                                {/* Display poster preview */}
+                                {posterPreview && <img src={posterPreview} alt="Poster Preview" className="w-full h-48  object-contain" />}
+                            </div>
+                            {/* Input for uploading poster image */}
+
                         </div>
                     </div>
-
-                    {/* Third column: Poster preview */}
-                    <div className=" p-4">
-                        <h2 className="text-lg font-bold mb-2">Poster Preview</h2>
-                        <div className=" mb-4">
-                            {/* Display poster preview */}
-                            {posterPreview && <img src={posterPreview} alt="Poster Preview" className="w-full h-auto" />}
-                        </div>
-                        {/* Input for uploading poster image */}
-
-                    </div>
-                </div>
                 </div>
 
-                </div>
+            </div>
             {/* </div> */}
         </div>
     )
