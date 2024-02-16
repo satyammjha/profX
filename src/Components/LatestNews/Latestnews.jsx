@@ -4,9 +4,6 @@ import { Card, CardBody, CardHeader, HStack, Stack, Heading, Text, Image } from 
 const Latestnews = () => {
 
     const [news, setNews] = useState([])
-
-
-
     useEffect(() => {
 
         var url = 'https://newsapi.org/v2/top-headlines?' +
@@ -15,7 +12,6 @@ const Latestnews = () => {
             'apiKey=d9f0a940c231415dafbb0777e8a4449f';
 
         var req = new Request(url);
-
         fetch(req)
             .then(function (response) {
                 return response.json();
@@ -31,6 +27,7 @@ const Latestnews = () => {
     }, [])
 
 
+
     return (
         <>
             <Card bg={'white'} boxShadow='lg' marginTop={'10px'} width={'24vw'} height={'22rem'} borderRadius={'4px'}>
@@ -40,23 +37,6 @@ const Latestnews = () => {
                 <CardBody overflowY={'scroll'} >
 
                     <Stack>
-
-                        {/* <Link to={news[0].url} target='_blank'>
-                            <HStack cursor={'pointer'} _hover={{
-                                backgroundColor: 'gray'
-                            }}
-                                padding={'3px'}
-                                borderRadius={'3px'}>
-
-
-
-
-                                <Image src={news[0].urlToImage} height={'43px'} />
-                                <Text textAlign={'justify'} lineHeight={'1rem'} fontWeight={'bold'}> {news[0].title} </Text>
-                            </HStack>
-
-                        </Link>
- */}
                         {
 
                             news.map((newsItem, index) => {
@@ -84,26 +64,15 @@ const Latestnews = () => {
                                     </>
 
                                 )
-
-
                             })
 
                         }
-
-
-
-
-
-
                         <hr />
                     </Stack>
-
                 </CardBody>
             </Card>
-
-
         </>
     )
 }
 
-export default Latestnews
+export default Latestnews;

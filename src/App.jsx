@@ -12,6 +12,7 @@ import Resources from "./Components/Resources/Resources";
 import Workload from "./Components/Workload/Workload";
 import Exams from "./Components/Exams/Exams";
 import Leaves from "./Components/Leaves/Leaves";
+import Login from "./Components/Login/Login";
 
 function App() {
 
@@ -20,7 +21,8 @@ function App() {
       <Topnav />
       <Sidenav />
       <Routes>
-        <Route path='/' element={<Dashboard />}></Route>
+        <Route path='/' element={<Login />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/announce' element={<Announce />}></Route>
         <Route path='/task' element={<Task />}></Route>
         <Route path='/chats' element={<Chats />}></Route>

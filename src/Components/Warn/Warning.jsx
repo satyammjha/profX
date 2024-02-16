@@ -16,10 +16,10 @@ function Warning({ limit }) {
     const cancelRef = React.useRef()
 
     useEffect(() => {
-        if (parseInt(limit) > 100 / (10 / 60 * 60)) {
+        if (parseInt(limit) > (100 / ((3000 / 60) * 60))) {
             onOpen();
         }
-    }, [limit, onOpen]);
+    }, [onOpen]);
 
     return (
         <>
