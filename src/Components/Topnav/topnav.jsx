@@ -1,4 +1,4 @@
-import { } from '@chakra-ui/react'
+
 import { Stack, Progress } from '@chakra-ui/react';
 import {
     Menu,
@@ -13,12 +13,13 @@ import {
     Button,
     HStack, Input, InputGroup, InputLeftElement, Image, Icon, Heading, Text
 } from '@chakra-ui/react'
-import React from 'react'
+import { React, useState, useEffect, useRef } from 'react'
 import logo from '../../assets/logo.png'
 import { IoIosSearch } from "react-icons/io";
 import user from '../../assets/user.jpg'
 import { GrAnnounce } from "react-icons/gr";
 import { MdOutlineExitToApp, MdOutlineMenuOpen } from "react-icons/md";
+import Warning from '../Warn/Warning';
 
 const topnav = ({ title }) => {
     const topIcons = [
@@ -26,10 +27,35 @@ const topnav = ({ title }) => {
         { icon: GrAnnounce, key: 2 },
         { icon: GrAnnounce, key: 3 },
     ]
+
+
+    const [progress, setProgress] = useState(0);
+    const [limit, setLimit] = useState(0);
+
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setProgress(prevProgress => prevProgress + (100 / (10 * 60)));
+        }, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
+
+    useEffect(() => {
+        if (progress >= limit) {
+            setLimit(progress);
+        }
+    }, [progress, limit]);
+
+    // Run effect only once when component mounts
     return (
 
 
         <>
+
+
+            <Warning limit={limit} zIndex={-1} />
+
+
             <HStack boxShadow='xl' h='16' justify={"space-between"} px='32' backgroundColor={"whitesmoke"}>
 
                 <Image src={logo} width={'10rem'} />
@@ -49,7 +75,7 @@ const topnav = ({ title }) => {
                         <Text fontSize={'11px'} fontWeight={'bold'}>Timer:</Text>
                         <Text fontSize={'11px'} color={'red'} fontWeight={'bold'}>33:30 min</Text>
                     </HStack>
-                    <Progress value={70} height={'6px'} colorScheme='red' borderRadius={'3px'}
+                    <Progress value={progress} height={'6px'} colorScheme='red' borderRadius={'3px'}
                         marginBottom={'3px'} cursor={'pointer'} backgroundColor={'#4C00A4'} />
                 </Stack>
                 <Menu>
@@ -89,7 +115,6 @@ const topnav = ({ title }) => {
                                 </>
                             )
                         })
-
                     }
 
 
