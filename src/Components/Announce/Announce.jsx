@@ -28,6 +28,17 @@ const Announce = () => {
             reader.readAsDataURL(file);
         }
     };
+    //Radio button
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleOptionChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
+    const [customText, setCustomText] = useState('');
+
+    const handleCustomTextChange = (event) => {
+        setCustomText(event.target.value);
+    };
     return (
         <div className='h-screen w-full bg-[#babcbf]' >
             {/* top events */}
@@ -102,7 +113,7 @@ const Announce = () => {
                             <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Category:</label>
                             <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Eligibility:</label>
                             <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Date:</label>
-                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Poster:</label>
+                            <label htmlFor="title" className="mt-3 block font-medium text-gray-700">Poster(if any):</label>
                         </div>
 
                         {/* Second column: Input fields */}
@@ -133,14 +144,38 @@ const Announce = () => {
                                     // onChange={handleInputChange}
                                     className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm  border-gray-500 rounded-md"
                                 />
-                                <input
-                                    type="text"
-                                    id="title"
-                                    name="title"
-                                    // value={eventDetails.title}
-                                    // onChange={handleInputChange}
-                                    className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm  border-gray-500 rounded-md"
-                                />
+                                <div className='inline'>
+                                    <label className='mr-2'>
+                                        <input
+                                            type="radio"
+                                            value="phone_no"
+                                            // checked={selectedOption === 'option1'}
+                                            onChange={handleOptionChange}
+                                            className='mr-2'
+                                        />
+                                        Everyone
+                                    </label>
+
+                                    <label >
+                                        <input
+                                            type="radio"
+                                            value="custom"
+                                            checked={selectedOption === 'custom'}
+                                            onChange={handleOptionChange}
+                                            className='mr-2'
+                                        />
+
+                                        <input
+                                            type="text"
+                                            id="title"
+                                            name="title"
+                                            // value={eventDetails.title}
+                                            // onChange={handleInputChange}
+                                            className="w-16 border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500  shadow-sm  border-gray-500 rounded-md"
+                                        />
+                                        
+                                    </label>
+                                </div>
                                 <input
                                     type="date"
                                     id="date"
@@ -153,7 +188,7 @@ const Announce = () => {
                                     type="file"
                                     accept="image/*"
                                     onChange={handlePosterUpload}
-                                    className="border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
+                                    className="w-[80px] border-2 mt-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-500 rounded-md"
                                 />
                             </div>
                         </div>
@@ -171,8 +206,11 @@ const Announce = () => {
                     </div>
                 </div>
 
+            <div className='flex justify-center items-end mb-4'>
+                <button className='px-3 py-2 bg-[#4C00A4] rounded-full text-white font-semibold'>Schedule</button>
             </div>
-            {/* </div> */}
+            </div>
+            
         </div>
     )
 }
