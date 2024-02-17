@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css'; // Import default styles
+import 'react-circular-progressbar/dist/styles.css';
 // import { Card, CardHeader, CardBody, CardFooter, h1, Button } from '@material-tailwind/react';
 
 const Result = () => {
@@ -46,13 +46,13 @@ const Result = () => {
       <div className='mx-10'>
 
 
-        <div className=" my-3 flex items-center justify-between border-2 rounded-md p-3 px-6">
-          {/* Left side: "Live Result" text */}
+        {/* <div className=" my-3 flex items-center justify-between border-2 rounded-md p-3 px-6">
+          
           <div>
             <p className="text-lg ">Live Results</p>
           </div>
 
-          {/* Middle: Rounded profile image */}
+        
           <div className='flex items-center'>
             <div>
               <p className="text-lg font-semibold">Alok kumar yadav</p>
@@ -61,12 +61,11 @@ const Result = () => {
               <img src="/DP.jpg" alt="Profile" className="w-12 h-12" />
             </div>
 
-            {/* Right side: Exit button */}
             <div>
               <button className="bg-red-500 text-white px-4 py-2 rounded-md">Exit</button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="my-6 ">
           <form onSubmit={handleSubmit} className="flex items-center  ">

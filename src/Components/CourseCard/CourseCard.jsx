@@ -11,6 +11,7 @@ const CourseCard = ({ name, completed }) => {
     ]
 
 
+
     const option = {
         backgroundColor: 'none',
         colors: ['red', 'green'],

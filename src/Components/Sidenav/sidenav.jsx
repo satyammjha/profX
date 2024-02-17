@@ -20,13 +20,14 @@ import { FaNetworkWired } from "react-icons/fa6";
 import { PiExamFill } from "react-icons/pi";
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { BsFileEarmarkSpreadsheetFill } from "react-icons/bs";
 
 const sidenav = () => {
     const links = [
         {
             name: 'Dashboard',
             icon: MdDashboard,
-            path: '/'
+            path: '/dashboard'
         },
         {
             name: 'Announce',
@@ -72,6 +73,21 @@ const sidenav = () => {
             name: 'Exams',
             icon: PiExamFill,
             path: '/exams'
+        },
+        {
+            name: 'Exams',
+            icon: PiExamFill,
+            path: '/exams'
+        },
+        {
+            name: 'Update Marks',
+            icon: BsFileEarmarkSpreadsheetFill,
+            path: '/addmarks'
+        },
+        {
+            name: 'Add Student',
+            icon: BsFileEarmarkSpreadsheetFill,
+            path: '/addstudent'
         },
     ]
 

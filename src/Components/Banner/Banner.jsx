@@ -1,11 +1,7 @@
 import { Card, CardBody, HStack, Image, Stack, Heading, Button, Text } from '@chakra-ui/react'
 import poster from '../../assets/training.png'
 
-
-
-
-
-
+ 
 const Banner = () => {
     return (
         <>

@@ -4,8 +4,11 @@ import Deadlines from '../Deadlines/Deadlines'
 import CourseCard from '../CourseCard/CourseCard'
 import Performance from '../PerformanceCard/Performance';
 import LatestNews from '../LatestNews/Latestnews';
+import { Link } from 'react-router-dom';
+import { motion } from "framer-motion"
+import { useRef } from 'react';
 
-const Dashboard = () => {
+const Dashboard = ({ reference }) => {
 
     const cources = [
         {
@@ -25,46 +28,45 @@ const Dashboard = () => {
         },
     ]
 
-
     return (
         <>
+            <div>
+                <Stack >
 
-            <Stack >
-                <HStack gap={4}>
-                    <Banner />
-                    <Deadlines />
-                </HStack>
+                    <HStack gap={4}>
+                        <motion.div drag dragConstraints={reference}>
+                            <Banner />
+                        </motion.div>
 
-                <HStack gap={8} marginLeft={'7.3rem'}>
+                        <motion.div drag dragConstraints={reference}>
+                            <Deadlines />
+                        </motion.div>
+                    </HStack>
 
-                    {cources.map((course, index) => {
-                        return (
-                            <>
+                    <HStack gap={8} marginLeft={'7.3rem'}>
 
-                                <CourseCard key={index} name={course.name} completed={course.completed} />
-
-                            </>
-
-
-                        )
-
-
-                    })}
-
-                </HStack>
-
-
-                <HStack marginLeft={'7.3rem'}>
-
-                    <Performance />
-
-<LatestNews/>
-
-
-                </HStack>
-
-            </Stack>
-
+                        <motion.div drag dragConstraints={reference}>
+                            {cources.map((course, index) => {
+                                return (
+                                    <>
+                                        <Link to='/coursedetails' name={"course.name"}>
+                                            <CourseCard key={index} completed={course.completed} />
+                                        </Link>
+                                    </>
+                                )
+                            })}
+                        </motion.div>
+                    </HStack>
+                    <HStack marginLeft={'7.3rem'}>
+                        <motion.div drag dragConstraints={reference}>
+                            <Performance />
+                        </motion.div>
+                        <motion.div drag dragConstraints={reference}>
+                            <LatestNews />
+                        </motion.div>
+                    </HStack>
+                </Stack>
+            </div>
         </>
     )
 }

@@ -13,16 +13,20 @@ import Workload from "./Components/Workload/Workload";
 import Exams from "./Components/Exams/Exams";
 import Leaves from "./Components/Leaves/Leaves";
 import Login from "./Components/Login/Login";
+import Coursedetails from "./Components/Coursedetails/Coursedetails";
+import { useRef } from "react";
+import Addmarks from "./Components/Addmarks/Addmarks";
+import Addstudent from "./Components/AddStudent/Addstudent";
 
 function App() {
-
+  const ref = useRef()
   return (
     <Router>
       <Topnav />
       <Sidenav />
       <Routes>
-        <Route path='/' element={<Login />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
+        {/* <Route path='/' element={<Login />}></Route> */}
+        <Route path='/' element={<Dashboard />} reference={ref} ></Route>
         <Route path='/announce' element={<Announce />}></Route>
         <Route path='/task' element={<Task />}></Route>
         <Route path='/chats' element={<Chats />}></Route>
@@ -32,6 +36,9 @@ function App() {
         <Route path='/workload' element={<Workload />}></Route>
         <Route path='/exams' element={<Exams />}></Route>
         <Route path='/support' element={<Support />}></Route>
+        <Route path='/coursedetails' element={<Coursedetails />}></Route>
+        <Route path='/addmarks' element={<Addmarks />}></Route>
+        <Route path='/addstudent' element={<Addstudent />}></Route>
 
       </Routes>
     </Router>
