@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import 'react-circular-progressbar/dist/styles.css'; // Import default styles
+function easeQuadInOut(t) {
+  return ((t *= 2) <= 1 ? t * t : --t * (2 - t) + 1) / 2;
+}
 // import { Card, CardHeader, CardBody, CardFooter, h1, Button } from '@material-tailwind/react';
 
 const Result = () => {
@@ -43,16 +46,14 @@ const Result = () => {
 
   return (
     <>
+      {/* Left side: "Live Result" text */}
       <div className='mx-10'>
-
-
-        {/* <div className=" my-3 flex items-center justify-between border-2 rounded-md p-3 px-6">
-          
+        <div className="mt-8 my-3 flex items-center justify-between border-2 rounded-md p-3 px-6">
           <div>
             <p className="text-lg ">Live Results</p>
           </div>
 
-        
+          {/* Middle: Rounded profile image */}
           <div className='flex items-center'>
             <div>
               <p className="text-lg font-semibold">Alok kumar yadav</p>
@@ -61,11 +62,12 @@ const Result = () => {
               <img src="/DP.jpg" alt="Profile" className="w-12 h-12" />
             </div>
 
+            {/* Right side: Exit button */}
             <div>
               <button className="bg-red-500 text-white px-4 py-2 rounded-md">Exit</button>
             </div>
           </div>
-        </div> */}
+        </div>
 
         <div className="my-6 ">
           <form onSubmit={handleSubmit} className="flex items-center  ">
@@ -138,15 +140,37 @@ const Result = () => {
             <div className='justify-center my-4'>
               <h1 className=' '>You have received {GradePercent.toFixed(1)}% grade   </h1>
             </div>
-            <div className='flex justify-center' style={{ width: '100px' }}>
-              <CircularProgressbar
+            {/* <div className='flex justify-center' style={{ width: '100px' }}> */}
+              {/* <CircularProgressbar
                 value={totalCreditTaken}
                 minValue={0}
                 maxValue={20}
                 text={`${GradePercent.toFixed(1)}%`}
                 className='flex justify-center'
-              />
-            </div>
+              /> */}
+              <div label="Fully controlled text animation using react-move">
+                <div
+                  valueStart={0}
+                  valueEnd={66}
+                  duration={1.4}
+                  easingFunction={easeQuadInOut}
+                  repeat
+                >
+                  {value => {
+                    const roundedValue = Math.round(value);
+                    return (
+                      <CircularProgressbar
+                        value={totalCreditTaken}
+                        text={`${GradePercent.toFixed(1)}%`}
+                        /* This is important to include, because if you're fully managing the
+                  animation yourself, you'll want to disable the CSS animation. */
+                        styles={buildStyles({ pathTransition: "none" })}
+                      />
+                    );
+                  }}
+                </div>
+              </div>
+            {/* </div> */}
           </div>
 
         </div>
@@ -170,7 +194,7 @@ const Result = () => {
 
           <div className="mt-6 w-3/5 flex flex-col justify-center border-2 px-4 py-4 shadow-xl mb-4   p-6 ">
             <div className='h-auto'>
-              <h1 className="block text-xl font-bold mb-4">Your Overall Performance This Semester</h1>
+              <h1 className="block text-2xl font-bold mb-4">Your Overall Performance This Semester</h1>
             </div>
             <div className=' flex justify-between'>
               <div className="block mb-4 text-lg font-semibold">
