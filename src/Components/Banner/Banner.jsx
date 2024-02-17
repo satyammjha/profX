@@ -1,11 +1,11 @@
 import { Card, CardBody, HStack, Image, Stack, Heading, Button, Text } from '@chakra-ui/react'
 import poster from '../../assets/training.png'
 
- 
+
 const Banner = () => {
     return (
         <>
-            <Card bgGradient='linear(to-b, #7928CA, #F2F2F2)' boxShadow='xl' marginTop={'10px'} width={'70vw'} borderRadius={'4px'} ml={'8%'} height={'9rem'}>
+            <Card backgroundColor={'black'} boxShadow='xl' marginTop={'10px'} width={'70vw'} borderRadius={'4px'} ml={'8%'} height={'9rem'}>
                 <CardBody>
                     <HStack gap={16}>
                         <Image src={poster} height={'4rem'} />

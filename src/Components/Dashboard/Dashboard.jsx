@@ -1,4 +1,4 @@
-import { Stack, HStack } from '@chakra-ui/react'
+import { Stack, HStack, Box } from '@chakra-ui/react'
 import Banner from '../Banner/Banner';
 import Deadlines from '../Deadlines/Deadlines'
 import CourseCard from '../CourseCard/CourseCard'
@@ -6,7 +6,8 @@ import Performance from '../PerformanceCard/Performance';
 import LatestNews from '../LatestNews/Latestnews';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion"
-import { useRef } from 'react';
+import Todo from './Todo/Todo';
+
 
 const Dashboard = ({ reference }) => {
 
@@ -27,46 +28,45 @@ const Dashboard = ({ reference }) => {
 
         },
     ]
-
     return (
         <>
             <div>
                 <Stack >
 
-                    <HStack gap={4}>
-                        <motion.div drag dragConstraints={reference}>
+                    <HStack gap={32}>
+                        < div drag dragConstraints={reference}>
                             <Banner />
-                        </motion.div>
+                        </ div>
 
-                        <motion.div drag dragConstraints={reference}>
+                        < div drag dragConstraints={reference} >
                             <Deadlines />
-                        </motion.div>
+                        </ div>
                     </HStack>
 
-                    <HStack gap={8} marginLeft={'7.3rem'}>
-
-                        <motion.div drag dragConstraints={reference}>
-                            {cources.map((course, index) => {
-                                return (
-                                    <>
-                                        <Link to='/coursedetails' name={"course.name"}>
-                                            <CourseCard key={index} completed={course.completed} />
-                                        </Link>
-                                    </>
-                                )
-                            })}
-                        </motion.div>
+                    <HStack gap={8} marginLeft={'5rem'}>
+                        {cources.map((course, index) => {
+                            return (
+                                <>
+                                    <Link to='/coursedetails' name={"course.name"}>
+                                        <CourseCard key={index} completed={course.completed} />
+                                    </Link>
+                                </>
+                            )
+                        })}
                     </HStack>
-                    <HStack marginLeft={'7.3rem'}>
-                        <motion.div drag dragConstraints={reference}>
+                    <HStack marginLeft={'5rem'}>
+                        < div drag dragConstraints={reference}>
                             <Performance />
-                        </motion.div>
-                        <motion.div drag dragConstraints={reference}>
+                        </ div>
+                        < div drag dragConstraints={reference}>
                             <LatestNews />
-                        </motion.div>
+                        </ div>
                     </HStack>
                 </Stack>
-            </div>
+                <Box position={'absolute'} marginLeft={'70rem'} boxShadow='xl' marginTop={'-30rem'} height={'65vh'} width={'23vw'} padding={'10px'} backgroundColor={'white'} dropShadow={'xl'} borderRadius={'3px'}>
+                    <Todo />
+                </Box>
+            </div >
         </>
     )
 }

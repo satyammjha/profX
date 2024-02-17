@@ -22,9 +22,8 @@ const CourseCard = ({ name, completed }) => {
 
     return (
         <>
-            <Card cursor={'pointer'} height={'15vh'} boxShadow='xl' width={'22vw'} padding={'7px'} borderRadius={'7px'} bgGradient='linear(to-r, #7928CA, pink)' _hover={{
+            <Card cursor={'pointer'} height={'15vh'} boxShadow='xl' width={'22vw'} padding={'7px'} borderRadius={'7px'} bgGradient='linear(to-r, #7928CA, #A828CE)' _hover={{
                 opacity: 0.8
-
             }}>
                 <HStack gap={8}>
                     <Image src={src} height={'80px'} />
