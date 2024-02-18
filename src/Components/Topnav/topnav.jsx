@@ -51,8 +51,6 @@ const topnav = ({ title }) => {
 
 
         <>
-
-
             <Warning limit={limit} zIndex={-1} />
 
 
@@ -73,7 +71,7 @@ const topnav = ({ title }) => {
                 <Stack boxShadow='lg' backgroundColor={"white"} padding={'6px'} borderRadius={'3px'} w={'9rem'}>
                     <HStack gap={8}>
                         <Text fontSize={'11px'} fontWeight={'bold'}>Timer:</Text>
-                        <Text fontSize={'11px'} color={'red'} fontWeight={'bold'}>33:30 min</Text>
+                        <Text fontSize={'11px'} color={'red'} fontWeight={'bold'}>{parseInt(progress)} min</Text>
                     </HStack>
                     <Progress value={progress} height={'6px'} colorScheme='red' borderRadius={'3px'}
                         marginBottom={'3px'} cursor={'pointer'} backgroundColor={'#4C00A4'} />

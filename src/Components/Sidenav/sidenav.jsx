@@ -27,7 +27,7 @@ const sidenav = () => {
         {
             name: 'Dashboard',
             icon: MdDashboard,
-            path: '/dashboard'
+            path: '/'
         },
         {
             name: 'Announce',

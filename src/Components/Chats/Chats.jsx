@@ -1,76 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Chatbot from '../Chatbot/Chatbot';
 import { Stack, Card, HStack, Input, Heading, Button, Text } from '@chakra-ui/react';
+import html2pdf from 'html2pdf.js';
 import Todo from '../Dashboard/Todo/Todo';
 
 const App = () => {
-  const [num, setNum] = useState(0)
-
-
-
   const [question, setQuestion] = useState('');
   const [questionsList, setQuestionsList] = useState([]);
 
   const handleAddQuestion = () => {
-    setNum(num + 1)
     if (question.trim() !== '') {
       setQuestionsList([...questionsList, question]);
       setQuestion('');
     }
   };
 
+  const handleReset = () => {
+    setQuestion('');
+    setQuestionsList([]);
+  };
 
-
-  // useEffect(() => {
-  //   // Dynamically load the Botpress WebChat scripts
-  //   const script1 = document.createElement('script');
-  //   script1.src = 'https://cdn.botpress.cloud/webchat/v1/inject.js';
-  //   script1.async = true;
-  //   document.body.appendChild(script1);
-
-  //   const script2 = document.createElement('script');
-  //   script2.src = 'https://mediafiles.botpress.cloud/15bdb5f2-76c2-430a-81f6-e8cded4393ed/webchat/config.js';
-  //   script2.defer = true;
-  //   document.body.appendChild(script2);
-
-  //   // Cleanup function to remove the scripts when the component unmounts
-  //   return () => {
-  //     document.body.removeChild(script1);
-  //     document.body.removeChild(script2);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   // Open the chatbot when the WebChat scripts are loaded
-  //   window.botpressWebChat?.onEvent(() => {
-  //     window.botpressWebChat?.sendEvent({ type: "show" });
-  //   }, ["LIFECYCLE.LOADED"]);
-  // }, []);
+  const handleExportPDF = () => {
+    const element = document.getElementById('questions-container');
+    html2pdf().from(element).save();
+  };
 
   return (
     <div>
-      <Card marginLeft={'10rem'}>
+      <Card marginLeft={'10rem'}
+        boxShadow='xl' padding={'10px'}
+        width={'50vw'} backgroundColor={'whitesmoke'} overflowY={'scroll'} marginTop={'30px'}>
         <Stack spacing={4}>
+          <Heading as={'h1'} marginLeft={'30%'} fontSize={'20px'}>Make question paper</Heading>
+          <hr height={'3px'} />
           <HStack>
+
             <Heading as={'h1'} fontSize={'23px'}>Question</Heading>
             <Input value={question} onChange={(e) => setQuestion(e.target.value)} width={'10rem'} border={'1px solid red'} />
           </HStack>
-          <Button width={'7rem'} colorScheme='red' onClick={() => {
-            handleAddQuestion();
-          }}>Add Question</Button>
+          <Button width={'7rem'} colorScheme='red' onClick={handleAddQuestion} marginLeft={'30%'}>Add Question</Button>
 
-          <Stack>
+          <Stack id="questions-container">
             <Heading fontSize={'20px'} marginTop={'30px'}>Questions:</Heading>
             {questionsList.map((q, index) => (
-              (
-
-                <>
-                  {/* <Text key={index}>{num}</Text> */}
-                  <Text key={index}>{q}</Text>
-
-                </>
-              )))}
+              <HStack key={index}>
+                <Text>{`Q${index + 1}) `}</Text>
+                <Text>{q}</Text>
+              </HStack>
+            ))}
           </Stack>
+          <HStack>
+            <Button width={'7rem'} colorScheme='green' onClick={handleExportPDF}>Export as PDF</Button>
+            <Button width={'7rem'} colorScheme='red' onClick={handleReset}>Reset</Button>
+          </HStack>
         </Stack>
       </Card>
 

@@ -17,6 +17,7 @@
     "@mobiscroll/react": "npm:@mobiscroll/react-trial@^5.29.0",
     "firebase": "^10.8.0",
     "framer-motion": "^11.0.5",
+    "html2pdf.js": "^0.10.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-circular-progressbar": "^2.1.0",
