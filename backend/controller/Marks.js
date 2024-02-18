@@ -2,7 +2,8 @@ import ErrorHandler from "../error/error.js";
 import StudentMarks from "../models/MarksSchema.js";
 
 export const sendStudentMarks = async (req, res, next) => {
-  const { Name, UID, Section, MarksOneSub, MarksSecSub, MarksThirSub } =req.body;
+  const { Name, UID, Section, MarksOneSub, MarksSecSub, MarksThirSub } =
+    req.body;
   if (
     !Name ||
     !UID ||
@@ -34,6 +35,14 @@ export const sendStudentMarks = async (req, res, next) => {
       );
       return next(new ErrorHandler(validationErrors.join(","), 400));
     }
+    return next(error);
+  }
+};
+export const receiveStudentMarks = async (req, res, next) => {
+  try {
+    const data = await StudentMarks.find();
+    res.status(200).json(data);
+  } catch (error) {
     return next(error);
   }
 };

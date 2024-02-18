@@ -1,9 +1,11 @@
 import express from "express";
-import  {sendStudentMarks} from "../controller/Marks.js";
+import { receiveStudentMarks, sendStudentMarks } from "../controller/Marks.js";
 
 const router = express.Router();
 
 router.post("/send", sendStudentMarks);
+
+router.get("/receive", receiveStudentMarks);
 
 export default router;
 

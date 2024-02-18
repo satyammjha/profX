@@ -1,48 +1,33 @@
-import React, { useState } from 'react';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css'; // Import default styles
-function easeQuadInOut(t) {
-  return ((t *= 2) <= 1 ? t * t : --t * (2 - t) + 1) / 2;
-}
-// import { Card, CardHeader, CardBody, CardFooter, h1, Button } from '@material-tailwind/react';
+// In your React component
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Result = () => {
-  const [selectedOption1, setSelectedOption1] = useState('');
-  const [selectedOption2, setSelectedOption2] = useState('');
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const handleOption1Change = (event) => {
-    setSelectedOption1(event.target.value);
-  };
+  useEffect(() => {
+    const handleMarksGet = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/receive');
+        // Assuming the response contains the fetched data
+        const data = response.data;
+        // Handle the fetched data as needed, such as setting state or logging
+        console.log('Fetched data:', data);
+        return data; // Return the fetched data if needed
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error; // Throw the error to handle it in the calling code
+      }
+    };
 
-  const handleOption2Change = (event) => {
-    setSelectedOption2(event.target.value);
-  };
+    handleMarksGet();
+  }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission here
-    console.log('Selected Option 1:', selectedOption1);
-    console.log('Selected Option 2:', selectedOption2);
-  };
-
-  //Table data
-  // Dummy data for the table rows
-  const data = [
-    { code: 'CSE101', title: 'Introduction to Computer Science', credit: 3, grade: 'A', gradePoint: 4.0 },
-    { code: 'MTH202', title: 'Calculus II', credit: 4, grade: 'B+', gradePoint: 3.3 },
-    { code: 'ENG301', title: 'English Composition', credit: 3, grade: 'A-', gradePoint: 3.7 },
-    { code: 'PHY101', title: 'Physics I', credit: 4, grade: 'C', gradePoint: 2.0 }
-  ];
-
-  // Calculate total credit requirement, total credit taken, and SGPA
-  const totalCreditRequirement = 20; // Example total credit requirement
-  const totalCreditTaken = data.reduce((acc, curr) => acc + curr.credit, 0);
-  const gradePoints = data.map(course => course.credit * course.gradePoint);
-  const totalGradePoints = gradePoints.reduce((acc, curr) => acc + curr, 0);
-  const sgpa = totalGradePoints / totalCreditTaken;
-  const GradePercent = (totalCreditTaken / totalCreditRequirement) * 100;
-
-  const progressValue = 75; // Set your progress value here (0-100)
+  // if (loading) return <div>Loading...</div>;
+  // if (error) return <div>Error: {error}</div>;
 
   return (
     <>
@@ -141,36 +126,41 @@ const Result = () => {
               <h1 className=' '>You have received {GradePercent.toFixed(1)}% grade   </h1>
             </div>
             {/* <div className='flex justify-center' style={{ width: '100px' }}> */}
-            {/* <CircularProgressbar
+              {/* <CircularProgressbar
                 value={totalCreditTaken}
                 minValue={0}
                 maxValue={20}
                 text={`${GradePercent.toFixed(1)}%`}
                 className='flex justify-center'
               /> */}
-            <div label="Fully controlled text animation using react-move">
-              <div
-                valueStart={0}
-                valueEnd={66}
-                duration={1.4}
-                easingFunction={easeQuadInOut}
-                repeat
-              >
-                {value => {
-                  const roundedValue = Math.round(value);
-                  return (
-                    <CircularProgressbar
-                      value={totalCreditTaken}
-                      text={`${GradePercent.toFixed(1)}%`}
-                      styles={buildStyles({ pathTransition: "none" })}
-                    />
-                  );
-                }}
+              <div label="Fully controlled text animation using react-move">
+                <div
+                  valueStart={0}
+                  valueEnd={66}
+                  duration={1.4}
+                  easingFunction={easeQuadInOut}
+                  repeat
+                >
+                  {value => {
+                    const roundedValue = Math.round(value);
+                    return (
+                      <CircularProgressbar
+                        value={totalCreditTaken}
+                        text={`${GradePercent.toFixed(1)}%`}
+                        /* This is important to include, because if you're fully managing the
+                  animation yourself, you'll want to disable the CSS animation. */
+                        styles={buildStyles({ pathTransition: "none" })}
+                      />
+                    );
+                  }}
+                </div>
               </div>
-            </div>
             {/* </div> */}
           </div>
+
         </div>
+
+
         <div className='flex'>
           <div className="mt-6 w-2/5 flex justify-between border-2 px-4 py-4 shadow-xl mb-4">
             <div className='block'>
@@ -180,6 +170,7 @@ const Result = () => {
               <h1 className="text-lg font-semibold">Faculty: <span className='text-blue-600'>FHSS</span></h1>
               <h1 className="text-lg font-semibold">Student ID: <span className='text-blue-600'>17I-101-199</span></h1>
               <h1 className="text-lg font-semibold">Enrollment: <span className='text-blue-600'>Spring 2019</span></h1>
+              {/* <h1 className="text-lg font-semibold">Batch: <span className='text-blue-600'>40</span></h1> */}
             </div>
             <div className="flex mx-4 rounded-full  overflow-hidden border-2 w-24 h-24">
               <img src="/DP.jpg" alt="Profile" className="" />
