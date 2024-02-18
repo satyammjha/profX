@@ -6,6 +6,7 @@ const Todo = () => {
         description: '',
         deadline: ''
     });
+    
     const [tasks, setTasks] = useState([]);
 
     const onFormSubmit = (event) => {

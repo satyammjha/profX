@@ -50,7 +50,7 @@ const topnav = ({ title }) => {
     return (
 
 
-        <>
+        <div className='navbar'>
             <Warning limit={limit} zIndex={-1} />
 
 
@@ -124,7 +124,7 @@ const topnav = ({ title }) => {
                 }} />
 
             </HStack>
-        </>
+        </div>
     )
 }
 export default topnav;

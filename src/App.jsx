@@ -25,7 +25,7 @@ function App() {
       <Topnav />
       <Sidenav />
       <Routes>
-        {/* <Route path='/' element={<Login />}></Route> */}
+        <Route path='/login' element={<Login />}></Route>
         <Route path='/' element={<Dashboard />} reference={ref} ></Route>
         <Route path='/announce' element={<Announce />}></Route>
         <Route path='/task' element={<Task />}></Route>
@@ -39,7 +39,6 @@ function App() {
         <Route path='/coursedetails' element={<Coursedetails />}></Route>
         <Route path='/addmarks' element={<Addmarks />}></Route>
         <Route path='/addstudent' element={<Addstudent />}></Route>
-
       </Routes>
     </Router>
   )

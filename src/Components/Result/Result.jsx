@@ -141,41 +141,36 @@ const Result = () => {
               <h1 className=' '>You have received {GradePercent.toFixed(1)}% grade   </h1>
             </div>
             {/* <div className='flex justify-center' style={{ width: '100px' }}> */}
-              {/* <CircularProgressbar
+            {/* <CircularProgressbar
                 value={totalCreditTaken}
                 minValue={0}
                 maxValue={20}
                 text={`${GradePercent.toFixed(1)}%`}
                 className='flex justify-center'
               /> */}
-              <div label="Fully controlled text animation using react-move">
-                <div
-                  valueStart={0}
-                  valueEnd={66}
-                  duration={1.4}
-                  easingFunction={easeQuadInOut}
-                  repeat
-                >
-                  {value => {
-                    const roundedValue = Math.round(value);
-                    return (
-                      <CircularProgressbar
-                        value={totalCreditTaken}
-                        text={`${GradePercent.toFixed(1)}%`}
-                        /* This is important to include, because if you're fully managing the
-                  animation yourself, you'll want to disable the CSS animation. */
-                        styles={buildStyles({ pathTransition: "none" })}
-                      />
-                    );
-                  }}
-                </div>
+            <div label="Fully controlled text animation using react-move">
+              <div
+                valueStart={0}
+                valueEnd={66}
+                duration={1.4}
+                easingFunction={easeQuadInOut}
+                repeat
+              >
+                {value => {
+                  const roundedValue = Math.round(value);
+                  return (
+                    <CircularProgressbar
+                      value={totalCreditTaken}
+                      text={`${GradePercent.toFixed(1)}%`}
+                      styles={buildStyles({ pathTransition: "none" })}
+                    />
+                  );
+                }}
               </div>
+            </div>
             {/* </div> */}
           </div>
-
         </div>
-
-
         <div className='flex'>
           <div className="mt-6 w-2/5 flex justify-between border-2 px-4 py-4 shadow-xl mb-4">
             <div className='block'>
@@ -185,7 +180,6 @@ const Result = () => {
               <h1 className="text-lg font-semibold">Faculty: <span className='text-blue-600'>FHSS</span></h1>
               <h1 className="text-lg font-semibold">Student ID: <span className='text-blue-600'>17I-101-199</span></h1>
               <h1 className="text-lg font-semibold">Enrollment: <span className='text-blue-600'>Spring 2019</span></h1>
-              {/* <h1 className="text-lg font-semibold">Batch: <span className='text-blue-600'>40</span></h1> */}
             </div>
             <div className="flex mx-4 rounded-full  overflow-hidden border-2 w-24 h-24">
               <img src="/DP.jpg" alt="Profile" className="" />
