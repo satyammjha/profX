@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import validator from "validator";
 
 const SMSchema = new mongoose.Schema({
   Name: {
