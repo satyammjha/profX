@@ -7,24 +7,22 @@ import LatestNews from '../LatestNews/Latestnews';
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion"
 import Todo from './Todo/Todo';
-
-
 const Dashboard = ({ reference }) => {
 
     const cources = [
         {
             name: 'Advanced UI/UX',
-            completed: '80%'
+            completed: 80
 
         },
         {
             name: 'Advanced UI/UX',
-            completed: '59%'
+            completed: 59
 
         },
         {
             name: 'Advanced UI/UX',
-            completed: '43%'
+            completed: 43
 
         },
     ]
@@ -65,14 +63,14 @@ const Dashboard = ({ reference }) => {
                     </HStack>
                 </Stack>
 
+                <motion.div drag>
+                    <Box position={'absolute'} marginLeft={'70rem'} boxShadow='xl' marginTop={'-30rem'} height={'65vh'} width={'23vw'} padding={'10px'} backgroundColor={'white'} dropShadow={'xl'} borderRadius={'3px'}>
 
-                <Box position={'absolute'} marginLeft={'70rem'} boxShadow='xl' marginTop={'-30rem'} height={'65vh'} width={'23vw'} padding={'10px'} backgroundColor={'white'} dropShadow={'xl'} borderRadius={'3px'}>
-                    <motion.div drag>
                         <Todo />
-                    </motion.div>
-                </Box>
 
-            </motion.div >
+                    </Box>
+                </motion.div>
+            </motion.div>
         </>
     )
 }

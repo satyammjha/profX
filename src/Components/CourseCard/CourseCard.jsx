@@ -1,8 +1,21 @@
 import { Stack, HStack, Card, Image, Heading, Box } from '@chakra-ui/react'
 import src from '../../assets/training.png'
 import { Chart } from "react-google-charts";
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import { useState, useEffect } from 'react';
 
 const CourseCard = ({ name, completed }) => {
+    const [percentage, setPercentage] = useState(0);
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (percentage < 100) {
+                setPercentage(percentage + 1);
+            }
+        }, 50);
+    }, [percentage]);
+
 
     const data = [
         ["Task", "Hours per Day"],
@@ -31,14 +44,10 @@ const CourseCard = ({ name, completed }) => {
                         <Heading fontSize={'20px'}>{name}</Heading>
                         <HStack gap={4}>
                             <Image src={src} height={'40px'} />
-                            <Box position={'absolute'} marginLeft={'-4vw'}>
-                                <Chart
-                                    chartType="PieChart"
-                                    data={data}
-                                    options={option}
-                                    width={"100%"}
-                                    height={"90px"}
-                                />
+                            <Box position={'absolute'} marginLeft={'-4vw'} eight="100px" >
+                                <div style={{ width: 70, marginLeft: 160 }}>
+                                    <CircularProgressbar value={completed} text={`${completed}%`} />
+                                </div>
                             </Box>
                         </HStack>
                     </Stack>

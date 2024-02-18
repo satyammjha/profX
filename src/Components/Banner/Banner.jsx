@@ -4,7 +4,6 @@ import poster from '../../assets/training.png'
 
 
 
-
 const Banner = () => {
     return (
         <>
