@@ -12,17 +12,17 @@ const CourseCard = ({ name, completed }) => {
 
 
 
+
+
     const option = {
         backgroundColor: 'none',
         colors: ['red', 'green'],
-
-
         legend: 'none'
     }
 
     return (
         <>
-            <Card cursor={'pointer'} height={'15vh'} boxShadow='xl' width={'22vw'} padding={'7px'} borderRadius={'7px'} bgGradient='linear(to-r, #7928CA, #A828CE)' _hover={{
+            <Card cursor={'pointer'} height={'15vh'} boxShadow='xl' width={'22vw'} padding={'7px'} borderRadius={'7px'} backgroundColor={'#09291E'} _hover={{
                 opacity: 0.8
             }}>
                 <HStack gap={8}>
@@ -31,23 +31,15 @@ const CourseCard = ({ name, completed }) => {
                         <Heading fontSize={'20px'}>{name}</Heading>
                         <HStack gap={4}>
                             <Image src={src} height={'40px'} />
-
                             <Box position={'absolute'} marginLeft={'-4vw'}>
-
                                 <Chart
-
                                     chartType="PieChart"
                                     data={data}
                                     options={option}
                                     width={"100%"}
                                     height={"90px"}
                                 />
-
-
-
-
                             </Box>
-
                         </HStack>
                     </Stack>
                 </HStack>

@@ -30,43 +30,49 @@ const Dashboard = ({ reference }) => {
     ]
     return (
         <>
-            <div>
+            <motion.div>
                 <Stack >
 
                     <HStack gap={32}>
-                        < div drag dragConstraints={reference}>
+                        < motion.div drag dragConstraints={reference}>
                             <Banner />
-                        </ div>
+                        </ motion.div>
 
-                        < div drag dragConstraints={reference} >
+                        < motion.div drag dragConstraints={reference} >
                             <Deadlines />
-                        </ div>
+                        </ motion.div>
                     </HStack>
-
-                    <HStack gap={8} marginLeft={'5rem'}>
-                        {cources.map((course, index) => {
-                            return (
-                                <>
-                                    <Link to='/coursedetails' name={"course.name"}>
-                                        <CourseCard key={index} completed={course.completed} />
-                                    </Link>
-                                </>
-                            )
-                        })}
-                    </HStack>
+                    <motion.div drag>
+                        <HStack gap={8} marginLeft={'5rem'}>
+                            {cources.map((course, index) => {
+                                return (
+                                    <>
+                                        <Link to='/coursedetails' name={"course.name"}>
+                                            <CourseCard key={index} completed={course.completed} />
+                                        </Link>
+                                    </>
+                                )
+                            })}
+                        </HStack>
+                    </motion.div>
                     <HStack marginLeft={'5rem'}>
-                        < div drag dragConstraints={reference}>
+                        < motion.div drag dragConstraints={reference}>
                             <Performance />
-                        </ div>
-                        < div drag dragConstraints={reference}>
+                        </ motion.div>
+                        < motion.div drag dragConstraints={reference}>
                             <LatestNews />
-                        </ div>
+                        </ motion.div>
                     </HStack>
                 </Stack>
+
+
                 <Box position={'absolute'} marginLeft={'70rem'} boxShadow='xl' marginTop={'-30rem'} height={'65vh'} width={'23vw'} padding={'10px'} backgroundColor={'white'} dropShadow={'xl'} borderRadius={'3px'}>
-                    <Todo />
+                    <motion.div drag>
+                        <Todo />
+                    </motion.div>
                 </Box>
-            </div >
+
+            </motion.div >
         </>
     )
 }
