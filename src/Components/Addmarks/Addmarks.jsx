@@ -54,7 +54,7 @@ const Addmarks = () => {
                         <FormLabel>UID</FormLabel>
                         <Input type='text' border='0.5px solid black' width={"15vw"} value={UID} onChange={(e)=> setUID(e.target.value)} />
                         <FormLabel>Section</FormLabel>
-                        <Input type='text' border='0.5px solid black' width={"15vw"} value={Section} onChange={(e)=> setSection(e.target.value)} />
+                        <Input type='text' border='0.5px solid black' width={"10vw"} value={Section} onChange={(e)=> setSection(e.target.value)} />
                     </HStack>
                     <HStack>
                         <FormLabel>Physics</FormLabel>
@@ -74,5 +74,4 @@ const Addmarks = () => {
         </Card>
     );
 }
-
 export default Addmarks;

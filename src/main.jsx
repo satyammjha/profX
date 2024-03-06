@@ -10,6 +10,5 @@ ReactDOM.createRoot(rootElement).render(
     <ChakraProvider>
       <App />
     </ChakraProvider>
-
   </React.StrictMode>,
 )
