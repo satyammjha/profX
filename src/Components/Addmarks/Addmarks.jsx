@@ -49,7 +49,7 @@ const Addmarks = () => {
             <FormControl>
                 <Stack gap={4}>
                     <HStack>
-                        <FormLabel>Student Name</FormLabel>
+                        <FormLabel>Student Names</FormLabel>
                         <Input type='text' border='0.5px solid black' width={"15vw"} value={Name} onChange={(e)=> setName(e.target.value)} />
                         <FormLabel>UID</FormLabel>
                         <Input type='text' border='0.5px solid black' width={"15vw"} value={UID} onChange={(e)=> setUID(e.target.value)} />
