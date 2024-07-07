@@ -7,7 +7,11 @@ import poster from '../../assets/training.png'
 const Banner = () => {
     return (
         <>
+<<<<<<< HEAD
             <Card backgroundColor={'#09291E'} boxShadow='xl' width={'70vw'} borderRadius={'4px'} ml={'5%'} height={'9rem'}>
+=======
+            <Card backgroundColor={'#09291E'} boxShadow='xl' marginTop={'10px'} width={'70vw'} borderRadius={'4px'} ml={'8%'} height={'9rem'}>
+>>>>>>> b1758df978e824ca736f570b223c9e0ce7257646
                 <CardBody>
                     <HStack gap={16}>
                         <Image src={poster} height={'4rem'} />

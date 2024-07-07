@@ -13,13 +13,18 @@ import {
     Button,
     HStack, Input, InputGroup, InputLeftElement, Image, Icon, Heading, Text
 } from '@chakra-ui/react'
+<<<<<<< HEAD
 import { React, useState, useEffect, useRef, useContext } from 'react'
+=======
+import { React, useState, useEffect, useRef } from 'react'
+>>>>>>> b1758df978e824ca736f570b223c9e0ce7257646
 import logo from '../../assets/logo.png'
 import { IoIosSearch } from "react-icons/io";
 import user from '../../assets/user.jpg'
 import { GrAnnounce } from "react-icons/gr";
 import { MdOutlineExitToApp, MdOutlineMenuOpen } from "react-icons/md";
 import Warning from '../Warn/Warning';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { database } from '../../firebase'
@@ -27,13 +32,21 @@ import { UserLoggedInContext } from '../../Context/Context';
 
 const topnav = ({ title }) => {
     const { loggedIn, setLoggedIn } = useContext(UserLoggedInContext);
+=======
+
+const topnav = ({ title }) => {
+>>>>>>> b1758df978e824ca736f570b223c9e0ce7257646
     const topIcons = [
         { icon: GrAnnounce, key: 1 },
         { icon: GrAnnounce, key: 2 },
         { icon: GrAnnounce, key: 3 },
     ]
 
+<<<<<<< HEAD
     const navigate = useNavigate();
+=======
+
+>>>>>>> b1758df978e824ca736f570b223c9e0ce7257646
     const [progress, setProgress] = useState(0);
     const [limit, setLimit] = useState(0);
 
@@ -51,6 +64,7 @@ const topnav = ({ title }) => {
         }
     }, [progress, limit]);
 
+<<<<<<< HEAD
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
@@ -70,6 +84,19 @@ const topnav = ({ title }) => {
                 <Text color={'#4c00a4'} fontSize={'27px'} fontWeight={'bold'}>profX</Text>
 
                 {/* <Image src={logo} width={'10rem'} /> */}
+=======
+    // Run effect only once when component mounts
+    return (
+
+
+        <div className='navbar'>
+            <Warning limit={limit} zIndex={-1} />
+
+
+            <HStack boxShadow='xl' h='16' justify={"space-between"} px='32' backgroundColor={"whitesmoke"}>
+
+                <Image src={logo} width={'10rem'} />
+>>>>>>> b1758df978e824ca736f570b223c9e0ce7257646
                 <InputGroup
                     justify={'center'}
                     boxShadow='md'
@@ -99,6 +126,10 @@ const topnav = ({ title }) => {
                 </Menu>
                 <HStack>
                     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1758df978e824ca736f570b223c9e0ce7257646
                         topIcons.map((icons, index) => {
 
                             return (
@@ -133,9 +164,14 @@ const topnav = ({ title }) => {
 
                 <Icon as={MdOutlineExitToApp} fontSize={'33px'} cursor={'pointer'} transition={'0.3s ease all'} _hover={{
                     opacity: '0.5'
+<<<<<<< HEAD
                 }}
                     onClick={handleLogout}
                 />
+=======
+                }} />
+
+>>>>>>> b1758df978e824ca736f570b223c9e0ce7257646
             </HStack>
         </div>
     )
